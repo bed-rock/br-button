@@ -1,0 +1,30 @@
+$button-font-weight: 400;
+
+$button-color: #333;
+$button-background: $color-white-10;
+$button-background-hover: darken($button-background,10%);
+$button-background-active: darken($button-background-hover,10%);
+// $button-border-color: $border-color-light;
+
+$button-primary-color: rgba(#fff, 0.9);
+$button-primary-background: $color-primary;
+$button-primary-background-hover: lighten($button-primary-background,10%);
+// $button-primary-border: darken($button-primary-bg, 4%);
+
+$button-accent-color: rgba(#fff, 0.9);
+$button-accent-background: $color-secondary;
+$button-accent-background-hover: lighten($button-accent-background,10%);
+// $button-accent-border: darken($button-secondary-bg, 4%);
+
+$button-link-disabled-color: $color-gray;
+
+$button-height: 2.5rem;
+$button-height-small: 2rem;
+$button-height-large: 3rem;
+
+$button-font-large: 1.2rem;
+$button-font-small: 0.8rem;
+
+$button-padding-horizontal: 1em;
+$button-margin: 4px;
+$button-border-radius: 3px;

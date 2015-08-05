@@ -1,0 +1,101 @@
+@import '../../bedrock/scss/variables';
+@import 'variables';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  vertical-align: middle;
+  height: $button-height;
+  line-height: $button-height;
+  color: $button-color;
+  background-color: $button-background;
+  border-radius: $button-border-radius;
+  padding: 0 $button-padding-horizontal;
+  overflow: hidden;
+  transition: $transition;
+  transform: translateY(0);
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:hover:not([disabled]),
+  &:focus:not(:active):not([disabled]) {
+    background-color: $button-background-hover;
+    box-shadow: rgba(#000, 0.2) 0 2px 2px;
+  }
+
+  &:active:not([disabled]) {
+    background-color: $button-background;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  &[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &.small {
+    height: $button-height-small;
+    line-height: $button-height-small;
+    font-size: $button-font-small;
+  }
+
+  &.large {
+    height: $button-height-large;
+    line-height: $button-height-large;
+    font-size: $button-font-large;
+  }
+
+  &.primary {
+    color: $button-primary-color;
+    background-color: $button-primary-background;
+
+    &:hover:not([disabled]),
+    &:focus:not(:active):not([disabled]) {
+      background-color: $button-primary-background-hover;
+    }
+
+    &:active:not([disabled]) {
+      background-color: $button-primary-background;
+    }
+  }
+
+  &.accent {
+    color: $button-accent-color;
+    background-color: $button-accent-background;
+
+    &:hover:not([disabled]),
+    &:focus:not(:active):not([disabled]) {
+      background-color: $button-accent-background-hover;
+    }
+
+    &:active:not([disabled]) {
+      background-color: $button-accent-background;
+    }
+  }
+
+  .icon {
+    margin-right: 0.5em;
+
+    // :host.small & {
+    //   width: 16px;
+    // }
+
+    // :host.large & {
+    //   width: 32px;
+    //   height: 32px;
+    // }
+  }
+
+}
