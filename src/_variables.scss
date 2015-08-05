@@ -8,12 +8,12 @@ $button-background-active: darken($button-background-hover,10%);
 
 $button-primary-color: rgba(#fff, 0.9);
 $button-primary-background: $color-primary;
-$button-primary-background-hover: lighten($button-primary-background,10%);
+$button-primary-background-hover: lighten($button-primary-background,8%);
 // $button-primary-border: darken($button-primary-bg, 4%);
 
 $button-accent-color: rgba(#fff, 0.9);
 $button-accent-background: $color-secondary;
-$button-accent-background-hover: lighten($button-accent-background,10%);
+$button-accent-background-hover: lighten($button-accent-background,8%);
 // $button-accent-border: darken($button-secondary-bg, 4%);
 
 $button-link-disabled-color: $color-gray;
