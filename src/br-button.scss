@@ -1,26 +1,24 @@
 @import '../../bedrock/scss/variables';
 @import 'variables';
 
-:host {
+:host, .btn {
+  position: relative;
+  // overflow: hidden;
   display: inline-flex;
   align-items: center;
-  background: none;
+  padding: 0 $button-padding-horizontal;
+  height: $button-height;
+  line-height: $button-height;
+  color: $button-color;
   border: none;
-  padding: 0;
   text-align: left;
   text-decoration: none;
   outline: none;
   cursor: pointer;
   appearance: none;
-  position: relative;
   vertical-align: middle;
-  height: $button-height;
-  line-height: $button-height;
-  color: $button-color;
-  background-color: $button-background;
+  background: $button-background;
   border-radius: $button-border-radius;
-  padding: 0 $button-padding-horizontal;
-  overflow: hidden;
   transition: $transition;
   transform: translateY(0);
 
