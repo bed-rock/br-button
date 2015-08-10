@@ -1,7 +1,7 @@
 $button-font-weight: 400;
 
 $button-color: #333;
-$button-background: $color-white-10;
+$button-background: #fff;
 $button-background-hover: darken($button-background,10%);
 $button-background-active: darken($button-background-hover,10%);
 // $button-border-color: $border-color-light;
@@ -28,3 +28,5 @@ $button-font-small: 0.8rem;
 $button-padding-horizontal: 1em;
 $button-margin: 4px;
 $button-border-radius: 3px;
+
+$button-transition: background-color 0.4s, transform 0.2s;

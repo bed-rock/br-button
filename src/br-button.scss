@@ -10,7 +10,7 @@
   height: $button-height;
   line-height: $button-height;
   color: $button-color;
-  border: none;
+  border: 1px solid rgba(#000, 0.15);
   text-align: left;
   text-decoration: none;
   outline: none;
@@ -19,22 +19,28 @@
   vertical-align: middle;
   background: $button-background;
   border-radius: $button-border-radius;
-  transition: $transition;
-  transform: translateY(0);
+  transition: $button-transition;
+  transform: scale(1);
+  user-select: none;
 
   &::-moz-focus-inner {
     border: 0;
   }
 
+  &:not(.btn-block) + &:not(.btn-block) {
+    margin-left: 1rem;
+  }
+
   &:hover:not([disabled]),
   &:focus:not(:active):not([disabled]) {
     background-color: $button-background-hover;
-    box-shadow: rgba(#000, 0.2) 0 2px 2px;
+    // box-shadow: rgba(#000, 0.2) 0 2px 2px;
   }
 
   &:active:not([disabled]) {
     background-color: $button-background;
-    transform: translateY(1px);
+    transform: scale(0.95);
+    // transform: translateY(2px);
     box-shadow: none;
   }
 
@@ -47,12 +53,22 @@
     height: $button-height-small;
     line-height: $button-height-small;
     font-size: $button-font-small;
+
+    .icon {
+      --iron-icon-height: 16px;
+      --iron-icon-width: 16px;
+    }
   }
 
   &.large {
     height: $button-height-large;
     line-height: $button-height-large;
     font-size: $button-font-large;
+
+    .icon {
+      --iron-icon-height: 32px;
+      --iron-icon-width: 32px;
+    }
   }
 
   &.primary {

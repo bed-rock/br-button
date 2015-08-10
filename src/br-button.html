@@ -5,10 +5,17 @@
   <link rel="import" type="css" href="../dist/css/br-button.css">
 
   <template>
+
     <template is="dom-if" if="{{icon}}">
-      <br-icons icon$="{{icon}}" class="icon"/>
+      <br-icons icon$="{{icon}}" class="icon" hidden$="{{isLoading}}"></br-icons>
     </template>
+
+    <template is="dom-if" if="{{isLoading}}">
+      <br-icons icon="br-icons:loading" class="icon"></br-icons>
+    </template>
+
     <template is="dom-if" if="{{label}}">{{label}}</template>
+
   </template>
 
   <script>
@@ -17,7 +24,18 @@
 
       properties: {
         label: String,
-        icon: String
+        icon: String,
+        isLoading: {
+          type: Boolean,
+          observer: '_isLoading'
+        }
+      },
+
+      _isLoading: function() {
+        if(this.isLoading)
+          this.setAttribute('disabled', true);
+        else
+          this.removeAttribute('disabled');
       }
     });
   </script>
