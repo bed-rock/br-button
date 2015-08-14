@@ -28,15 +28,29 @@
         isLoading: {
           type: Boolean,
           observer: '_isLoading'
+        },
+        isDisabled:{
+          type: Boolean,         
+          observer: '_isDisabled'
         }
       },
 
       _isLoading: function() {
-        if(this.isLoading)
+        this._toggleDisable(this.isLoading);          
+      },
+
+      _isDisabled: function(){
+        this._toggleDisable(this.isDisabled);          
+      },
+
+      _toggleDisable: function(condition){
+        if(condition)
           this.setAttribute('disabled', true);
         else
           this.removeAttribute('disabled');
       }
+
+
     });
   </script>
 </dom-module>
