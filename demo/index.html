@@ -7,6 +7,7 @@
 
 	<link rel="stylesheet" href="../../bedrock/dist/css/style.css">
 
+	<link rel="import" type="html" href="../../polymer/polymer.html">
 	<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
 	<link rel="import" href="../src/br-button.html">
 
@@ -21,38 +22,37 @@
 
 <!--
 Usage:
-Tag: <br-apps-navigation></br-apps-navigation>
+Tag: <br-button></br-button>
 Attributes:
-	button-check: Type: Boolean
-	Required: false
-
-	options: Type: Array
-	Description: Collection of object with key and value to populate
-	Required: true
+	Class: small, large
+	Label: Label name
+	icon: iconUrl
+	is-disabled: If assigned to a br-button tag, it creates a disabled button
 -->
 
 
 
-<br-button class="small" label="Botão pequeno" icon="br-icons:user"></br-button>
+<br-button class="btn-small" label="Botão pequeno" icon="br-icons:user"></br-button>
 <br-button label="Botão normal" icon="br-icons:user"></br-button>
-<br-button class="large" label="Botão grande" icon="br-icons:user"></br-button>
+<br-button class="btn-large" label="Botão grande" icon="br-icons:user"></br-button>
 <br-button label="Botão desabilitado" icon="br-icons:user" is-disabled></br-button>
 
 <br>
 <br>
 
-<br-button class="primary small" label="Botão pequeno" icon="br-icons:user"></br-button>
-<br-button class="primary" label="Botão normal" icon="br-icons:user" id="teste" is-loading></br-button>
-<br-button class="primary large" label="Botão grande" icon="br-icons:user"></br-button>
-<br-button class="primary" label="Botão desabilitado" icon="br-icons:user" is-disabled></br-button>
+<br-button class="btn-primary small" label="Botão pequeno" icon="br-icons:user"></br-button>
+<br-button class="btn-primary" label="Botão normal" icon="br-icons:user" id="teste" is-loading></br-button>
+<br-button class="btn-primary large" label="Botão grande" icon="br-icons:user"></br-button>
+<br-button class="btn-primary" label="Botão desabilitado" icon="br-icons:user" is-disabled></br-button>
 
 <br>
 <br>
 
-<br-button class="accent small" label="Botão pequeno"></br-button>
-<br-button class="accent" label="Botão normal"></br-button>
-<br-button class="accent large" label="Botão grande"></br-button>
-<br-button class="accent" label="Botão desabilitado" is-disabled></br-button>
+<br-button class="btn-accent small" label="Botão pequeno"></br-button>
+<br-button class="btn-accent" label="Botão normal"></br-button>
+<br-button class="btn-accent large" label="Botão grande"></br-button>
+<br-button class="btn-accent" label="Botão desabilitado" is-disabled></br-button>
+<br-button class="btn-block btn-primary" label="Botão block"></br-button>
 
 </div>
 

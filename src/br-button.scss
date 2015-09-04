@@ -15,7 +15,6 @@
   border: none;
   text-decoration: none;
   outline: none;
-  cursor: pointer;
   appearance: none;
   vertical-align: middle;
   background: $button-background;
@@ -48,7 +47,14 @@
     cursor: not-allowed;
   }
 
-  &.small {
+  &.btn-block{
+    width: 100%;
+    display: block;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &.btn-small {
     height: $button-height-small;
     line-height: $button-height-small;
     font-size: $button-font-small;
@@ -59,7 +65,7 @@
     }
   }
 
-  &.large {
+  &.btn-large {
     height: $button-height-large;
     line-height: $button-height-large;
     font-size: $button-font-large;
@@ -70,7 +76,7 @@
     }
   }
 
-  &.primary {
+  &.btn-primary {
     color: $button-primary-color;
     background-color: $button-primary-background;
 
@@ -84,7 +90,7 @@
     }
   }
 
-  &.accent {
+  &.btn-accent {
     color: $button-accent-color;
     background-color: $button-accent-background;
 

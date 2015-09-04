@@ -1,4 +1,3 @@
-<link rel="import" type="html" href="../../polymer/polymer.html">
 <link rel="import" type="html" href="../../br-icons/src/br-icons.html">
 
 <dom-module id="br-button">
@@ -30,17 +29,17 @@
           observer: '_isLoading'
         },
         isDisabled:{
-          type: Boolean,         
+          type: Boolean,
           observer: '_isDisabled'
         }
       },
 
       _isLoading: function() {
-        this._toggleDisable(this.isLoading);          
+        this._toggleDisable(this.isLoading);
       },
 
       _isDisabled: function(){
-        this._toggleDisable(this.isDisabled);          
+        this._toggleDisable(this.isDisabled);
       },
 
       _toggleDisable: function(condition){

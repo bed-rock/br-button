@@ -15,7 +15,6 @@
   border: none;
   text-decoration: none;
   outline: none;
-  cursor: pointer;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -50,42 +49,50 @@
   opacity: 0.7;
   cursor: not-allowed;
 }
-:host.small, .btn.small {
+:host.btn-block, .btn.btn-block {
+  width: 100%;
+  display: block;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+:host.btn-small, .btn.btn-small {
   height: 2rem;
   line-height: 2rem;
   font-size: 0.8rem;
 }
-:host.small .icon, .btn.small .icon {
+:host.btn-small .icon, .btn.btn-small .icon {
   --iron-icon-height: 16px;
   --iron-icon-width: 16px;
 }
-:host.large, .btn.large {
+:host.btn-large, .btn.btn-large {
   height: 3rem;
   line-height: 3rem;
   font-size: 1.2rem;
 }
-:host.large .icon, .btn.large .icon {
+:host.btn-large .icon, .btn.btn-large .icon {
   --iron-icon-height: 32px;
   --iron-icon-width: 32px;
 }
-:host.primary, .btn.primary {
+:host.btn-primary, .btn.btn-primary {
   color: rgba(255, 255, 255, 0.95);
   background-color: #334455;
 }
-:host.primary:hover:not([disabled]), :host.primary:focus:not(:active):not([disabled]), .btn.primary:hover:not([disabled]), .btn.primary:focus:not(:active):not([disabled]) {
+:host.btn-primary:hover:not([disabled]), :host.btn-primary:focus:not(:active):not([disabled]), .btn.btn-primary:hover:not([disabled]), .btn.btn-primary:focus:not(:active):not([disabled]) {
   background-color: #42586f;
 }
-:host.primary:active:not([disabled]), .btn.primary:active:not([disabled]) {
+:host.btn-primary:active:not([disabled]), .btn.btn-primary:active:not([disabled]) {
   background-color: #334455;
 }
-:host.accent, .btn.accent {
+:host.btn-accent, .btn.btn-accent {
   color: rgba(255, 255, 255, 0.95);
   background-color: #366261;
 }
-:host.accent:hover:not([disabled]), :host.accent:focus:not(:active):not([disabled]), .btn.accent:hover:not([disabled]), .btn.accent:focus:not(:active):not([disabled]) {
+:host.btn-accent:hover:not([disabled]), :host.btn-accent:focus:not(:active):not([disabled]), .btn.btn-accent:hover:not([disabled]), .btn.btn-accent:focus:not(:active):not([disabled]) {
   background-color: #447c7b;
 }
-:host.accent:active:not([disabled]), .btn.accent:active:not([disabled]) {
+:host.btn-accent:active:not([disabled]), .btn.btn-accent:active:not([disabled]) {
   background-color: #366261;
 }
 :host .icon, .btn .icon {
