@@ -2,9 +2,11 @@
 
 <dom-module id="br-button">
 
+  <link rel="import" type="css" href="../dist/css/br-button.min.css">
+
   <template>
 
-    <button type$="{{type}}" class$="{{class}}">
+    <button type$="{{type}}">
       <template is="dom-if" if="{{icon}}">
         <br-icons icon$="{{icon}}" class="icon" hidden$="{{isLoading}}"></br-icons>
       </template>
@@ -23,7 +25,7 @@
       properties: {
         label: String,
         icon: String,
-        class: String,
+        //class: String,
         type: {
           type: String,
           value: 'button'

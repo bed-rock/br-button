@@ -1,0 +1,21 @@
+@import '../../bedrock/scss/variables';
+
+:host {
+  display: inline-block;
+  padding: 0 !important;
+
+  &.btn-block button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  button {
+    appearance: none;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    display: flex;
+    align-items: center;
+    height: $button-height;
+    padding: 0 $button-padding-horizontal;
+  }
+}
