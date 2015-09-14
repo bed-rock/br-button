@@ -6,7 +6,7 @@
 
 <template>
 
-	<button type$="{{type}}">
+	<button id$="{{id}}" type$="{{type}}" disabled$="{{isLoading}}">
 		<template is="dom-if" if="{{icon}}">
 			<br-icons icon$="{{icon}}" class="icon" hidden$="{{isLoading}}"></br-icons>
 		</template>
@@ -23,35 +23,29 @@
 		is: 'br-button',
 
 		properties: {
+			id: String,
 			label: String,
 			icon: String,
 			type: {
 				type: String,
 				value: 'button'
 			},
-			isLoading: {
-				type: String,
-				observer: '_toggleDisable'
-			},
-			isDisabled:{
-				type: String,
-				observer: '_toggleDisable'
-			}
+			isLoading: String
+			
 		},
 
 		ready: function(){
-			if(this.isLoading === 'false')
-				this.removeAttribute('is-loading');
-			else
-				this.setAttribute('is-loading', true);
-
+			this._checkVisibility();
 		},
 
-		_toggleDisable: function(condition){
-			if(condition)
-				this.setAttribute('disabled', true);
+		_checkVisibility: function(){		
+
+			var btn = document.getElementById(this.id);
+
+			if(this.isLoading === 'true')
+				btn.setAttribute('is-loading', true)
 			else
-				this.removeAttribute('disabled');
+				btn.removeAttribute('is-loading');
 		}
 
 	});
