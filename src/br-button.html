@@ -30,21 +30,20 @@
 				value: 'button'
 			},
 			isLoading: {
-				type: Boolean,
+				type: String,
 				observer: '_toggleDisable'
 			},
 			isDisabled:{
-				type: Boolean,
+				type: String,
 				observer: '_toggleDisable'
 			}
 		},
 
 		ready: function(){
-
-			if(!this.isLoading)
+			if(this.isLoading === 'false')
 				this.removeAttribute('is-loading');
 			else
-				this.setAttribute('is-loading', 'true');
+				this.setAttribute('is-loading', true);
 
 		},
 
