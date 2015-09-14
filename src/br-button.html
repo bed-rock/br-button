@@ -40,9 +40,10 @@
 		},
 
 		ready: function(){
+			
 			if(this.isLoading === 'false')
 				this.removeAttribute('is-loading');
-			else
+			else if(this.isLoading === 'true')
 				this.setAttribute('is-loading', true);
 
 		},
