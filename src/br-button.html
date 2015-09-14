@@ -47,7 +47,7 @@
 
 			if(this.isLoading === 'true')
 				btn.setAttribute('is-loading', true)
-			else
+			else if(btn && btn.hasAttribute('is-loading'))
 				btn.removeAttribute('is-loading');
 		}
 
