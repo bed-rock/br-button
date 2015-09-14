@@ -30,7 +30,10 @@
 				type: String,
 				value: 'button'
 			},
-			isLoading: String
+			isLoading:{ 
+				type:String,
+				observer: '_checkVisibility'
+			}
 			
 		},
 
