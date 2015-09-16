@@ -6,7 +6,7 @@
 
 <template>
 
-	<button id$="{{id}}" type$="{{type}}" disabled$="{{isLoading}}">
+	<button id$="{{id}}" type$="{{type}}" disabled$="{{isDisabled}}">
 		<template is="dom-if" if="{{icon}}">
 			<br-icons icon$="{{icon}}" class="icon" hidden$="{{isLoading}}"></br-icons>
 		</template>
@@ -38,7 +38,20 @@
 		},
 
 		ready: function(){
+			this.isDisabled = false;
 			this._checkVisibility();
+		},
+
+		toggleDisable: function(){
+			return (this.isDisabled = !this.isDisabled);
+		},
+
+		disable: function(){
+			return this.isDisabled = true;
+		},
+
+		enable: function(){
+			return this.isDisabled = false;
 		},
 
 		_checkVisibility: function(){		
@@ -46,9 +59,11 @@
 			var btn = document.getElementById(this.id);
 
 			if(this.isLoading === 'true')
-				btn.setAttribute('is-loading', true)
+				btn.setAttribute('is-loading', true)						
 			else if(btn && btn.hasAttribute('is-loading'))
 				btn.removeAttribute('is-loading');
+
+			this.toggleDisable();
 		}
 
 	});
