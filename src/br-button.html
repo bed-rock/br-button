@@ -55,6 +55,14 @@
 			this.toggleAttribute('is-disabled');
 		},
 
+		enable: function() {
+			this.setAttribute('is-disabled', true);
+		},
+
+		disable: function() {
+			this.removeAttribute('is-disabled');
+		},
+
 		_checkVisibility: function() {
 			this.toggleDisable();
 		}
