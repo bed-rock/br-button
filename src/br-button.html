@@ -2,11 +2,11 @@
 
 <dom-module id="br-button">
 
-<link rel="import" type="css" href="../dist/css/br-button.min.css">
+<!-- <link rel="import" type="css" href="../dist/css/br-button.min.css"> -->
 
 <template>
 
-	<button id$="{{id}}" type$="{{type}}" disabled$="{{isDisabled}}">
+	<button id$="{{id}}" type$="{{type}}" class$="{{fullClass}}" disabled$="{{isDisabled}}">
 		<template is="dom-if" if="{{icon}}">
 			<br-icons icon$="{{icon}}" class="icon" hidden$="{{isLoading}}"></br-icons>
 		</template>
@@ -30,39 +30,70 @@
 				type: String,
 				value: 'button'
 			},
-			isLoading:{ 
-				type:String,
+			color: {
+				type: String,
+				value: 'btn'
+			},
+			fullClass: {
+				computed: '_computeFullClass(color)'
+			},
+			size: String,
+			block: Boolean,
+			isLoading:{
+				type: Boolean,
 				observer: '_checkVisibility'
 			}
-			
+
 		},
 
-		ready: function(){
-			this.isDisabled = false;
-			this._checkVisibility();
+		ready: function() {
+			var isDisabled = false;
+			this._setupSize();
+			this._checkIsBlock();
 		},
 
-		toggleDisable: function(){
+		_computeFullClass: function(color) {
+			if (color !== 'btn')
+				return 'btn btn-' + color;
+			else
+				return 'btn';
+		},
+
+		_setupSize: function() {
+			if (this.size) {
+				var modifier;
+
+				switch (this.size) {
+					case 'large':
+					modifier = 'btn-lg';
+					break;
+
+					case 'small':
+					modifier = 'btn-sm';
+					break;
+				}
+				this.$$('button').classList.add(modifier);
+			}
+		},
+
+		_checkIsBlock: function() {
+			if (this.block)
+				this.$$('button').classList.add('btn-block');
+		},
+
+		toggleDisable: function() {
 			return (this.isDisabled = !this.isDisabled);
 		},
 
-		disable: function(){
-			return this.isDisabled = true;
-		},
+		// disable: function() {
+		// 	return this.isDisabled = true;
+		// },
 
-		enable: function(){
-			return this.isDisabled = false;
-		},
+		// enable: function() {
+		// 	return this.isDisabled = false;
+		// },
 
-		_checkVisibility: function(){		
-
-			var btn = document.getElementById(this.id);
-
-			if(this.isLoading === 'true')
-				btn.setAttribute('is-loading', true)						
-			else if(btn && btn.hasAttribute('is-loading'))
-				btn.removeAttribute('is-loading');
-
+		_checkVisibility: function() {
 			this.toggleDisable();
 		}
 
