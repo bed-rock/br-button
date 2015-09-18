@@ -6,7 +6,7 @@
 
 <template>
 
-	<button id$="{{id}}" type$="{{type}}" class$="{{fullClass}}" disabled$="{{isDisabled}}">
+	<button id$="{{id}}" type$="{{type}}" class="btn" disabled$="{{isDisabled}}">
 		<template is="dom-if" if="{{icon}}">
 			<br-icons icon$="{{icon}}" class="icon" hidden$="{{isLoading}}"></br-icons>
 		</template>
@@ -30,13 +30,7 @@
 				type: String,
 				value: 'button'
 			},
-			color: {
-				type: String,
-				value: 'btn'
-			},
-			fullClass: {
-				computed: '_computeFullClass(color)'
-			},
+			color: String,
 			size: String,
 			block: Boolean,
 			isDisabled: Boolean,
@@ -48,37 +42,16 @@
 		},
 
 		ready: function() {
-			this._setupSize();
-			this._checkIsBlock();
+			this._setupClass();
 		},
 
-		_computeFullClass: function(color) {
-			if (color !== 'btn')
-				return 'btn btn-' + color;
-			else
-				return 'btn';
-		},
-
-		_setupSize: function() {
-			if (this.size) {
-				var modifier;
-
-				switch (this.size) {
-					case 'large':
-					modifier = 'btn-lg';
-					break;
-
-					case 'small':
-					modifier = 'btn-sm';
-					break;
-				}
-				this.$$('button').classList.add(modifier);
-			}
-		},
-
-		_checkIsBlock: function() {
+		_setupClass: function() {
+			if (this.color)
+				this.$$('button').classList.add('btn-' + this.color);
+			if (this.size)
+				this.$$('button').classList.add('btn-' + this.size);
 			if (this.block)
-				this.$$('button').classList.add('btn-block');
+				this.$$('button').classList.add('btn-' + this.block);
 		},
 
 		toggleDisable: function() {
