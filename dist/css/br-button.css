@@ -1,25 +1,13 @@
 :host {
-  display: inline-block;
-  padding: 0 !important;
+  display: inline;
 }
-:host.btn-block button {
-  width: 100%;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+
+.btn-small .icon {
+  --iron-icon-height: 16px;
+  --iron-icon-width: 16px;
 }
-:host button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: transparent;
-  border: none;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 3rem;
-  padding: 0 1em;
+
+.btn-large .icon {
+  --iron-icon-height: 32px;
+  --iron-icon-width: 32px;
 }

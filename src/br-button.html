@@ -1,12 +1,10 @@
-<link rel="import" type="html" href="../../br-icons/src/br-icons.html">
-
 <dom-module id="br-button">
 
 <link rel="import" type="css" href="../dist/css/br-button.min.css">
 
 <template>
 
-	<button id$="{{id}}" type$="{{type}}" disabled$="{{isDisabled}}">
+	<button id$="{{id}}" type$="{{type}}" class="btn" disabled$="{{isDisabled}}">
 		<template is="dom-if" if="{{icon}}">
 			<br-icons icon$="{{icon}}" class="icon" hidden$="{{isLoading}}"></br-icons>
 		</template>
@@ -30,39 +28,34 @@
 				type: String,
 				value: 'button'
 			},
-			isLoading:{ 
-				type:String,
+			color: String,
+			size: String,
+			block: Boolean,
+			isDisabled: Boolean,
+			isLoading:{
+				type: Boolean,
 				observer: '_checkVisibility'
 			}
-			
 		},
 
-		ready: function(){
-			this.isDisabled = false;
-			this._checkVisibility();
+		ready: function() {
+			this._setupClass();
 		},
 
-		toggleDisable: function(){
-			return (this.isDisabled = !this.isDisabled);
+		_setupClass: function() {
+			if (this.color)
+				this.$$('button').classList.add('btn-' + this.color);
+			if (this.size)
+				this.$$('button').classList.add('btn-' + this.size);
+			if (this.block)
+				this.$$('button').classList.add('btn-block');
 		},
 
-		disable: function(){
-			return this.isDisabled = true;
+		toggleDisable: function() {
+			this.toggleAttribute('is-disabled');
 		},
 
-		enable: function(){
-			return this.isDisabled = false;
-		},
-
-		_checkVisibility: function(){		
-
-			var btn = document.getElementById(this.id);
-
-			if(this.isLoading === 'true')
-				btn.setAttribute('is-loading', true)						
-			else if(btn && btn.hasAttribute('is-loading'))
-				btn.removeAttribute('is-loading');
-
+		_checkVisibility: function() {
 			this.toggleDisable();
 		}
 
