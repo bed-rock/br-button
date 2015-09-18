@@ -1,5 +1,3 @@
-<link rel="import" type="html" href="../../br-icons/src/br-icons.html">
-
 <dom-module id="br-button">
 
 <link rel="import" type="css" href="../dist/css/br-button.min.css">
@@ -38,7 +36,6 @@
 				type: Boolean,
 				observer: '_checkVisibility'
 			}
-
 		},
 
 		ready: function() {
@@ -51,7 +48,7 @@
 			if (this.size)
 				this.$$('button').classList.add('btn-' + this.size);
 			if (this.block)
-				this.$$('button').classList.add('btn-' + this.block);
+				this.$$('button').classList.add('btn-block');
 		},
 
 		toggleDisable: function() {
