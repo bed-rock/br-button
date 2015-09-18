@@ -39,6 +39,7 @@
 			},
 			size: String,
 			block: Boolean,
+			isDisabled: Boolean,
 			isLoading:{
 				type: Boolean,
 				observer: '_checkVisibility'
@@ -47,7 +48,6 @@
 		},
 
 		ready: function() {
-			var isDisabled = false;
 			this._setupSize();
 			this._checkIsBlock();
 		},
@@ -82,16 +82,8 @@
 		},
 
 		toggleDisable: function() {
-			return (this.isDisabled = !this.isDisabled);
+			this.toggleAttribute('is-disabled');
 		},
-
-		// disable: function() {
-		// 	return this.isDisabled = true;
-		// },
-
-		// enable: function() {
-		// 	return this.isDisabled = false;
-		// },
 
 		_checkVisibility: function() {
 			this.toggleDisable();
