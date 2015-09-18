@@ -2,20 +2,26 @@
 
 :host {
   display: inline-block;
-  padding: 0 !important;
+}
 
-  &.btn-block button {
-    width: 100%;
-    justify-content: center;
+.btn-small {
+  height: $button-height-small;
+  line-height: $button-height-small;
+  font-size: $button-font-small;
+
+  .icon {
+    --iron-icon-height: 16px;
+    --iron-icon-width: 16px;
   }
+}
 
-  button {
-    appearance: none;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    display: flex;
-    align-items: center;
-    height: $button-height;
-    padding: 0 $button-padding-horizontal;
+.btn-large {
+  height: $button-height-large;
+  line-height: $button-height-large;
+  font-size: $button-font-large;
+
+  .icon {
+    --iron-icon-height: 32px;
+    --iron-icon-width: 32px;
   }
 }
