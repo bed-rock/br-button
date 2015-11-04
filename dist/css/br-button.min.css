@@ -1,1 +1,1 @@
-:host{display:inline}.btn-small .icon{--iron-icon-height:16px;--iron-icon-width:16px}.btn-large .icon{--iron-icon-height:32px;--iron-icon-width:32px}
+:host{display:inline}:host+:host{margin-left:.5rem}.btn--icon{--iron-icon-height:1em;--iron-icon-width:1em}

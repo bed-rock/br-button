@@ -1,13 +1,11 @@
 :host {
   display: inline;
 }
-
-.btn-small .icon {
-  --iron-icon-height: 16px;
-  --iron-icon-width: 16px;
+:host + :host {
+  margin-left: 0.5rem;
 }
 
-.btn-large .icon {
-  --iron-icon-height: 32px;
-  --iron-icon-width: 32px;
+.btn--icon {
+  --iron-icon-height: 1em;
+  --iron-icon-width: 1em;
 }
