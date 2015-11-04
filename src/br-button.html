@@ -4,14 +4,17 @@
 
 <template>
 
-	<button id$="{{id}}" type$="{{type}}" class="btn" disabled$="{{isDisabled}}">
+	<button id$="{{id}}" type$="{{type}}" class="btn" disabled$="{{disabled}}">
 		<template is="dom-if" if="{{icon}}">
-			<br-icons icon$="{{icon}}" class="icon" hidden$="{{isLoading}}"></br-icons>
+			<br-icons icon$="{{icon}}" class="btn--icon" hidden$="{{isLoading}}"></br-icons>
 		</template>
 		<template is="dom-if" if="{{isLoading}}">
-			<br-icons icon="br-icons:loading" class="icon icon__spin"></br-icons>
+			<br-icons icon="br-icons:loading" class="btn--icon icon__spin"></br-icons>
 		</template>
-		<template is="dom-if" if="{{label}}">{{label}}</template>
+		<template is="dom-if" if="{{label}}">
+			<span class="btn--label">{{label}}</span>
+		</template>
+		<content></content>
 	</button>
 
 </template>
@@ -31,7 +34,7 @@
 			color: String,
 			size: String,
 			block: Boolean,
-			isDisabled: Boolean,
+			disabled: Boolean,
 			isLoading:{
 				type: Boolean,
 				observer: '_checkVisibility'
@@ -44,23 +47,23 @@
 
 		_setupClass: function() {
 			if (this.color)
-				this.$$('button').classList.add('btn-' + this.color);
+				this.$$('button').classList.add('btn__' + this.color);
 			if (this.size)
-				this.$$('button').classList.add('btn-' + this.size);
+				this.$$('button').classList.add('btn__' + this.size);
 			if (this.block)
-				this.$$('button').classList.add('btn-block');
+				this.$$('button').classList.add('btn__block');
 		},
 
 		toggleDisable: function() {
-			this.toggleAttribute('is-disabled');
+			this.toggleAttribute('disabled');
 		},
 
 		enable: function() {
-			this.setAttribute('is-disabled', true);
+			this.setAttribute('disabled', true);
 		},
 
 		disable: function() {
-			this.removeAttribute('is-disabled');
+			this.removeAttribute('disabled');
 		},
 
 		_checkVisibility: function() {
