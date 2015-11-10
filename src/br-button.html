@@ -51,6 +51,8 @@
 				this.$$('button').classList.add('btn__' + this.size);
 			if (this.block)
 				this.$$('button').classList.add('btn__block');
+		  if (!this.label && !!this.icon)
+		    this.$$( 'button' ).classList.add( 'btn__icon' );
 		},
 
 		toggleDisable: function() {
