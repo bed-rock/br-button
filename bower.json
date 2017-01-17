@@ -24,7 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "bedrock-base": "~1.0.0",
+    "bedrock-base": "latest",
     "br-icons": "~1.0.0"
   }
 }

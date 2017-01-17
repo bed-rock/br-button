@@ -19,3 +19,7 @@
   --iron-icon-height: 36px;
   --iron-icon-width: 36px;
 }
+
+:disabled {
+  pointer-events: none;
+}
