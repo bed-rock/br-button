@@ -1,10 +1,10 @@
 <dom-module id="br-button">
 
-<link rel="import" type="css" href="../dist/css/br-button.min.css">
+	<link rel="import" type="css" href="../dist/css/br-button.min.css">
 
-<template>
+	<template>
 
-	<button id$="{{id}}" type$="{{type}}" class="btn" disabled$="{{disabled}}">
+		<button id$="{{id}}" type$="{{type}}" class="btn" disabled$="{{disabled}}" title="{{title}}">
 		<template is="dom-if" if="{{icon}}">
 			<br-icons icon$="{{icon}}" class="btn--icon" hidden$="{{isLoading}}"></br-icons>
 		</template>
@@ -16,61 +16,63 @@
 		</template>
 	</button>
 
-</template>
+	</template>
 
-<script>
-	Polymer({
-		is: 'br-button',
+	<script>
+		Polymer({
+			is: 'br-button',
 
-		properties: {
-			id: String,
-			label: String,
-			icon: String,
-			type: {
-				type: String,
-				value: 'button'
+			properties: {
+				id: String,
+				label: String,
+				icon: String,
+				title: String,
+				type: {
+					type: String,
+					value: 'button'
+				},
+				color: String,
+				size: String,
+				block: Boolean,
+				disabled: Boolean,
+				isLoading: {
+					type: Boolean,
+					observer: '_checkVisibility'
+				}
 			},
-			color: String,
-			size: String,
-			block: Boolean,
-			disabled: Boolean,
-			isLoading:{
-				type: Boolean,
-				observer: '_checkVisibility'
+
+			ready: function () {
+				this._setupClass();
+			},
+
+			_setupClass: function () {
+				if (this.color)
+					this.$$('button').classList.add('btn__' + this.color);
+				if (this.size)
+					this.$$('button').classList.add('btn__' + this.size);
+				if (this.block)
+					this.$$('button').classList.add('btn__block');
+				if (!this.label && !!this.icon)
+					this.$$('button').classList.add('btn__icon');
+			},
+
+			toggleDisable: function () {
+				this.toggleAttribute('disabled');
+			},
+
+			enable: function () {
+				this.setAttribute('disabled', true);
+			},
+
+			disable: function () {
+				this.removeAttribute('disabled');
+			},
+
+			_checkVisibility: function () {
+				this.toggleDisable();
 			}
-		},
 
-		ready: function() {
-			this._setupClass();
-		},
+		});
 
-		_setupClass: function() {
-			if (this.color)
-				this.$$('button').classList.add('btn__' + this.color);
-			if (this.size)
-				this.$$('button').classList.add('btn__' + this.size);
-			if (this.block)
-				this.$$('button').classList.add('btn__block');
-		  if (!this.label && !!this.icon)
-		    this.$$( 'button' ).classList.add( 'btn__icon' );
-		},
-
-		toggleDisable: function() {
-			this.toggleAttribute('disabled');
-		},
-
-		enable: function() {
-			this.setAttribute('disabled', true);
-		},
-
-		disable: function() {
-			this.removeAttribute('disabled');
-		},
-
-		_checkVisibility: function() {
-			this.toggleDisable();
-		}
-
-	});
-</script>
+	</script>
 </dom-module>
